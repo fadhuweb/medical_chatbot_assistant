@@ -10,7 +10,7 @@ from huggingface_hub import snapshot_download
 # CONFIGURATION
 # ============================================================================
 HF_MODEL_REPO = "fadhuweb/medical-assistant-model"
-MAX_TOKENS = 60
+MAX_TOKENS = 100
 
 # ============================================================================
 # MODEL LOADING
