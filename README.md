@@ -81,8 +81,6 @@ All three fine-tuned experiments dramatically outperformed the baseline, confirm
 ### Prerequisites
 - Python 3.10 or higher
 - pip
-- At least 8GB RAM (16GB recommended)
-- GPU is optional but speeds up inference significantly
 
 ### Step 1 — Clone the repository
 ```bash
