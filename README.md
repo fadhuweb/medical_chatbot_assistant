@@ -36,7 +36,7 @@ The fine-tuned model is deployed as an interactive chatbot using **Gradio** on H
 
 ---
 
-## 🔧 Fine-Tuning Methodology
+## Fine-Tuning Methodology
 
 The model was fine-tuned using **LoRA (Low-Rank Adaptation)**, a parameter-efficient technique that injects trainable low-rank matrices into the transformer layers while keeping the original model weights frozen. This allows effective fine-tuning on limited GPU resources such as Google Colab's free T4 GPU.
 
@@ -50,7 +50,7 @@ The model was fine-tuned using **LoRA (Low-Rank Adaptation)**, a parameter-effic
 
 ---
 
-## 🧪 Experiment Results
+## Experiment Results
 
 Three experiments were conducted with different learning rates and batch size configurations to identify the optimal hyperparameters. All experiments ran for 5 epochs on the same dataset.
 
@@ -115,6 +115,66 @@ The training notebook `model-training.ipynb` is designed to run end-to-end on **
 2. Go to **Runtime → Change runtime type → T4 GPU**
 3. Run all cells from top to bottom
 4. The notebook covers data loading, preprocessing, LoRA fine-tuning, evaluation, and saving the model
+
+---
+
+## Example Conversations — Base Model vs Fine-tuned Model
+
+The following examples show real responses from both models, demonstrating the impact of fine-tuning:
+
+---
+
+**Q1: What are the symptoms of diabetes?**
+
+| | Response |
+|---|---|
+| **Base Model** | "The symptoms of diabetes can vary depending on the type of diabetes and the individual's overall health. However, here are some common symptoms: 1. Blurred vision: Diabetes can cause blurred vision, especially in the early stages. 2. Thirst: People with diabetes may experience increased thirst and urination, which can lead to dehydration." |
+| **Fine-tuned** | "Diabetes mellitus is characterized by the presence of polyuria and polydipsia, which are the classic symptoms of the disease." |
+
+
+---
+
+**Q2: How is hypertension treated?**
+
+| | Response |
+|---|---|
+| **Base Model** | "Hypertension is treated with medication, lifestyle changes, and sometimes surgery. Medication can help lower blood pressure by reducing the amount of blood that is pumped out of the heart. This can be done through medications such as blood pressure pills, anti-hypertensive medications, or medications that lower blood pressure through the kidneys." |
+| **Fine-tuned** | "Hypertension is treated with medication." |
+
+
+---
+
+**Q3: What causes pneumonia?**
+
+| | Response |
+|---|---|
+| **Base Model** | "Pneumonia is caused by infection with bacteria, viruses, or fungi in the lungs. The bacteria that cause pneumonia are usually spread through the air, while viruses and fungi can be spread through contact with infected surfaces or droplets. The infection can also occur in people who have weakened immune systems or have underlying medical conditions." |
+| **Fine-tuned** | "Pneumonia is caused by bacteria." |
+
+
+---
+
+**Q4: Explain the difference between Type 1 and Type 2 diabetes.**
+
+| | Response |
+|---|---|
+| **Base Model** | "Type 1 diabetes is a chronic metabolic disorder characterized by the absence or dysfunction of insulin-producing cells in the pancreas. This results in a lack of insulin, which leads to high blood sugar levels (hyperglycemia) and the development of complications such as blindness, kidney failure, and heart disease. On the other hand, Type 2 diabetes is a metabolic disorder charcter" |
+| **Fine-tuned** | "Type 1 diabetes is characterized by autoimmune destruction of β cells in the pancreas, while Type 2 diabetes is characterized by insulin resistance due to dysfunction of β cells or other insulin-producing cells in the pancreas." |
+
+---
+
+**Q5: What are the side effects of aspirin?**
+
+| | Response |
+|---|---|
+| **Base Model** | "Aspirin can cause the following side effects: 1. Gastric bleeding: Aspirin can cause bleeding in the stomach or intestines, which can lead to severe pain, vomiting, and bleeding. 2. Stomach ulcers: Aspirin can cause stomach ulcers, which are inflammation of the lining of the stomach or intestines.
+
+" |
+| **Fine-tuned** | "Aspirin can cause gastric ulcers and hemorrhage." |
+
+---
+
+**Key Observation:** The fine-tuned model consistently produces more clinically precise and terminology-accurate responses. In some cases the base model provides more elaborative detail, which is a known trade-off when fine-tuning on concise flashcard-format data. Future work includes augmenting with longer-form medical explanations.
 
 ---
 
